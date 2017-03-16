@@ -1,5 +1,7 @@
 {% if user.is_authenticated %}
     <p> You have been loged in</p>
+    <li><a href="/app/logout/"> logout</a></li>
 {% else %}
     <p> Hello world !</p>
+    <li><a href="/app/login/"> login</a></li>
 {% endif %}
