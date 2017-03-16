@@ -11,9 +11,6 @@ def get_name(request):
     if request.method == 'POST':
         form = NameForm( request.POST )
         if form.is_valid():
-            print('*'*20)
-            print(form)
-            print('*'*20)
             return HttpResponseRedirect('/app/test/')
     else:
         form = NameForm()
@@ -30,7 +27,6 @@ def register(request):
     return render(request, 'app/name.html', {'form':form})
 
 
-
 def log_in(request):
     if request.method == 'POST':
         loginform = LoginForm( request.POST )
@@ -39,13 +35,10 @@ def log_in(request):
             email = loginform.cleaned_data['email']
             password = loginform.cleaned_data['password']
             user =email_backend.authenticate(email, password)
-            print( email, password, 'in login')
             if user is not None:
                 login(request, user)
-                print('login successfully')
                 return HttpResponseRedirect('/app/test/')
             else:
-                print('login unsuccessfully')
                 pass
     else:
         loginform = LoginForm()

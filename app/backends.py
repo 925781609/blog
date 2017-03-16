@@ -11,9 +11,7 @@ class EmailOrUsernameModelBackend(object):
         #else:
         #    kwargs = {'username': username}
         try:
-            print(email, 'in EmailOrUsernameModelBackend')
             user = User.objects.get(**kwargs)
-            print( user )
             if user.check_password(password):
                 return user
             else:
