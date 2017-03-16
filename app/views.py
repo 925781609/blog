@@ -52,4 +52,4 @@ def log_in(request):
     return render(request, 'app/login.html', {'form': loginform})
 
 def test( request ):
-    return HttpResponse("Hello test")
+    return render(request, 'app/test.html')
