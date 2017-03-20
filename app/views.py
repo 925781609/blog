@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 
 from .forms import NameForm, LoginForm
 from .admin import UserCreationForm 
@@ -44,6 +45,7 @@ def log_in(request):
         loginform = LoginForm()
     return render(request, 'app/login.html', {'form': loginform})
 
+@login_required(login_url='/app/login/')
 def log_out(request):
     logout(request)
     return render(request, 'app/test.html')
