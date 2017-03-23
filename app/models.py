@@ -61,7 +61,7 @@ class User(AbstractBaseUser):
     def is_staff(self):
         ''' Is the user a member of staff? '''
         return self.is_admin
-   """   Blog  relevant model """
+   ### Blog  relevant model  
 
 class Blog (models.Model):
     name = models.CharField(max_length=100)
@@ -80,7 +80,7 @@ class Author( models.Model ):
 class Entry( models.Model ):
     blog = models.ForeignKey( Blog )
     headline = models.CharField( max_length=255 )
-    body__text = models.TextField()
+    body_text = models.TextField()
     pub_date = models.DateField()
     mod_date = models.DateField()
     authors = models.ManyToManyField( Author )
